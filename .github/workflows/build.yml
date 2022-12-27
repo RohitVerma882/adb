@@ -1,0 +1,65 @@
+name: Build adb
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - get_sources.sh
+      - LICENSE.txt
+      - README.md
+      - .github/**
+      - patches/*
+      - tools/*
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Reason'     
+        required: false
+        default: 'Update package'
+
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        target_abi: [arm64-v8a, armeabi-v7a, x86_64, x86]
+      fail-fast: false
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          submodules: 'false'
+
+      - name: Prerequisites
+        run: |
+            sudo apt install \
+            ninja-build \
+            autogen \
+            autoconf \
+            libtool \
+            build-essential \
+            -y
+
+      - name: Download tools
+        run: |
+            CLEAN=tools/termux-elf-cleaner
+            rm $CLEAN
+            curl -L https://github.com/termux/termux-elf-cleaner/releases/download/v2.1.1/termux-elf-cleaner > $CLEAN
+            chmod +x $CLEAN
+        
+      - uses: nttld/setup-ndk@v1
+        id: setup-ndk
+        with:
+          ndk-version: r24
+          add-to-path: false
+      - run: bash build.sh ${{ matrix.target_abi }}
+        env:
+          NDK_PATH: ${{ steps.setup-ndk.outputs.ndk-path }}
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: adb-${{ matrix.target_abi }}
+          path: output/${{ matrix.target_abi }}

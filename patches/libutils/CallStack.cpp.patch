@@ -1,0 +1,13 @@
+diff --git a/src/libutils/CallStack.cpp b/src/libutils/CallStack.cpp
+index fe6f33d..e5e344c 100644
+--- a/src/libutils/CallStack.cpp
++++ b/src/libutils/CallStack.cpp
+@@ -20,8 +20,6 @@
+ #include <utils/Errors.h>
+ #include <utils/Log.h>
+ 
+-#include <backtrace/Backtrace.h>
+-
+ #define CALLSTACK_WEAK  // Don't generate weak definitions.
+ #include <utils/CallStack.h>
+ 

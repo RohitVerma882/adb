@@ -1,0 +1,14 @@
+diff --git a/src/libbase/logging.cpp b/src/libbase/logging.cpp
+index 0d2f920..ed12a0a 100644
+--- a/src/libbase/logging.cpp
++++ b/src/libbase/logging.cpp
+@@ -43,6 +43,9 @@
+ #include <vector>
+ 
+ #include <android/log.h>
++
++#undef __ANDROID__
++
+ #ifdef __ANDROID__
+ #include <android/set_abort_message.h>
+ #else

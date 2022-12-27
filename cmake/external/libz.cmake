@@ -1,0 +1,39 @@
+#
+# Copyright © 2022 Github RohitVerma882
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+add_library(libz STATIC
+    ${SRC_EXTRA}/zlib/adler32.c
+    ${SRC_EXTRA}/zlib/compress.c
+    ${SRC_EXTRA}/zlib/cpu_features.c
+    ${SRC_EXTRA}/zlib/crc32.c
+    ${SRC_EXTRA}/zlib/deflate.c
+    ${SRC_EXTRA}/zlib/gzclose.c
+    ${SRC_EXTRA}/zlib/gzlib.c
+    ${SRC_EXTRA}/zlib/gzread.c
+    ${SRC_EXTRA}/zlib/gzwrite.c
+    ${SRC_EXTRA}/zlib/infback.c
+    ${SRC_EXTRA}/zlib/inffast.c
+    ${SRC_EXTRA}/zlib/inflate.c
+    ${SRC_EXTRA}/zlib/inftrees.c
+    ${SRC_EXTRA}/zlib/trees.c
+    ${SRC_EXTRA}/zlib/uncompr.c
+    ${SRC_EXTRA}/zlib/zutil.c)
+
+target_compile_definitions(libz PRIVATE
+    -DHAVE_HIDDEN
+    -DZLIB_CONST)
+    
+target_include_directories(libz PRIVATE ${SRC_EXTRA}/zlib)

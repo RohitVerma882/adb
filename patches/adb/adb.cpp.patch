@@ -1,0 +1,19 @@
+diff --git a/src/adb/adb.cpp b/src/adb/adb.cpp
+index f8d4e48..86490a6 100644
+--- a/src/adb/adb.cpp
++++ b/src/adb/adb.cpp
+@@ -91,12 +91,8 @@ static void DecrementActiveConnections() {
+ std::string adb_version() {
+     // Don't change the format of this --- it's parsed by ddmlib.
+     return android::base::StringPrintf(
+-        "Android Debug Bridge version %d.%d.%d\n"
+-        "Version %s-%s\n"
+-        "Installed as %s\n",
+-        ADB_VERSION_MAJOR, ADB_VERSION_MINOR, ADB_SERVER_VERSION,
+-        PLATFORM_TOOLS_VERSION, PLATFORM_TOOLS_VENDOR,
+-        android::base::GetExecutablePath().c_str());
++        "Android Debug Bridge version %d.%d.%d adbify-custom\n",
++        ADB_VERSION_MAJOR, ADB_VERSION_MINOR, ADB_SERVER_VERSION);
+ }
+ 
+ uint32_t calculate_apacket_checksum(const apacket* p) {

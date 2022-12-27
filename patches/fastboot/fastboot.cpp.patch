@@ -1,0 +1,22 @@
+diff --git a/src/fastboot/fastboot.cpp b/src/fastboot/fastboot.cpp
+index 762ee3c..bbde369 100644
+--- a/src/fastboot/fastboot.cpp
++++ b/src/fastboot/fastboot.cpp
+@@ -361,7 +361,7 @@ static Transport* open_device() {
+             announce = false;
+             fprintf(stderr, "< waiting for %s >\n", serial ? serial : "any device");
+         }
+-        std::this_thread::sleep_for(std::chrono::milliseconds(1));
++//        std::this_thread::sleep_for(std::chrono::milliseconds(1));
+     }
+ }
+ 
+@@ -1961,7 +1961,7 @@ int FastBootTool::Main(int argc, char* argv[]) {
+                 setvbuf(stdout, nullptr, _IONBF, 0);
+                 setvbuf(stderr, nullptr, _IONBF, 0);
+             } else if (name == "version") {
+-                fprintf(stdout, "fastboot version %s-%s\n", PLATFORM_TOOLS_VERSION, PLATFORM_TOOLS_VENDOR);
++                fprintf(stdout, "fastboot version %s\n", "adbify-custom");
+                 fprintf(stdout, "Installed as %s\n", android::base::GetExecutablePath().c_str());
+                 return 0;
+             } else {
