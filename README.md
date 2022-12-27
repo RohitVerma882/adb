@@ -4,7 +4,7 @@
 
 ```adb, fastboot``` build workflow for Android
 
-## license
+## License
 ```
 Copyright © 2022 Github RohitVerma882
 
