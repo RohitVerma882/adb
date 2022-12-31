@@ -23,7 +23,7 @@
 #include "libusbi.h"
 #include "version.h"
 
-#ifdef __ANDROID__
+#if 0
 #include <android/log.h>
 #endif
 #include <stdio.h>
@@ -2532,7 +2532,7 @@ int usbi_vsnprintf(char *str, size_t size, const char *format, va_list args)
 static void log_str(enum libusb_log_level level, const char *str)
 {
 #if defined(USE_SYSTEM_LOGGING_FACILITY)
-#if defined(__ANDROID__)
+#if 0
 	int priority;
 	switch (level) {
 	case LIBUSB_LOG_LEVEL_NONE: return;	/* Impossible, but keeps compiler happy */
