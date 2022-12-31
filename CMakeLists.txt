@@ -34,12 +34,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_compile_options(-fcolor-diagnostics -fPIC -Wno-attributes)
 add_compile_definitions(_FILE_OFFSET_BITS=64)
 
-# tools version
-set(TOOLS_VERSION 33.0.3)
-set(TOOLS_VENDOR android-tools)
-configure_file(version.h.in src/build/version.h @ONLY)
-configure_file(platform_tools_version.h.in src/platform_tools_version.h @ONLY)
-
 # sources
 set(SRC ${PROJECT_SOURCE_DIR}/src)
 set(SRC_EXTRA ${PROJECT_SOURCE_DIR}/src/external)

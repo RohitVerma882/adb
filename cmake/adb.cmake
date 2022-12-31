@@ -115,7 +115,6 @@ add_executable(adb
     
 target_include_directories(adb PRIVATE
     ${SRC}/adb
-    ${SRC}
     ${SRC}/adb/proto
     ${SRC}/adb/fastdeploy/deployagent
     ${SRC}/adb/crypto/include
