@@ -47,9 +47,6 @@
 #include <android-base/strings.h>
 #include <diagnose_usb.h>
 
-#include <build/version.h>
-#include <platform_tools_version.h>
-
 #include "adb_auth.h"
 #include "adb_io.h"
 #include "adb_listeners.h"
