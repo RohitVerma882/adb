@@ -47,6 +47,9 @@
 #include <android-base/strings.h>
 #include <diagnose_usb.h>
 
+#include <build/version.h>
+#include <platform_tools_version.h>
+
 #include "adb_auth.h"
 #include "adb_io.h"
 #include "adb_listeners.h"
@@ -91,8 +94,12 @@ static void DecrementActiveConnections() {
 std::string adb_version() {
     // Don't change the format of this --- it's parsed by ddmlib.
     return android::base::StringPrintf(
-        "Android Debug Bridge version %d.%d.%d adbify-custom\n",
-        ADB_VERSION_MAJOR, ADB_VERSION_MINOR, ADB_SERVER_VERSION);
+        "Android Debug Bridge version %d.%d.%d\n"
+        "Version %s-%s\n"
+        "Installed as %s\n",
+        ADB_VERSION_MAJOR, ADB_VERSION_MINOR, ADB_SERVER_VERSION,
+        PLATFORM_TOOLS_VERSION, android::build::GetBuildNumber().c_str(),
+        android::base::GetExecutablePath().c_str());
 }
 
 uint32_t calculate_apacket_checksum(const apacket* p) {

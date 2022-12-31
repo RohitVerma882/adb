@@ -115,6 +115,7 @@ add_executable(adb
     
 target_include_directories(adb PRIVATE
     ${SRC}/adb
+    ${SRC}
     ${SRC}/adb/proto
     ${SRC}/adb/fastdeploy/deployagent
     ${SRC}/adb/crypto/include
@@ -143,11 +144,7 @@ target_compile_definitions(adb PRIVATE
     -DADB_HOST=1
     -DENABLE_FASTDEPLOY)
 
-find_library(log-lib log)
-find_library(android-lib android)
-
 target_link_libraries(adb
-    ${android-lib}
     libbase
     libutils
     libcutils

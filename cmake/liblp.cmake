@@ -21,7 +21,7 @@ add_library(liblp STATIC
 	${SRC}/liblp/utility.cpp
 	${SRC}/liblp/writer.cpp)
 	
-target_include_directories(liblp PRIVATE
+target_include_directories(liblp PUBLIC
 	${SRC}/liblp/include
 	${SRC}/libbase/include
     ${SRC}/libcutils/include

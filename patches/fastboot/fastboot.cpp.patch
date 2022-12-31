@@ -16,7 +16,7 @@ index 762ee3c..bbde369 100644
                  setvbuf(stderr, nullptr, _IONBF, 0);
              } else if (name == "version") {
 -                fprintf(stdout, "fastboot version %s-%s\n", PLATFORM_TOOLS_VERSION, PLATFORM_TOOLS_VENDOR);
-+                fprintf(stdout, "fastboot version %s\n", "adbify-custom");
++                fprintf(stdout, "fastboot version %s\n", "flashie-custom");
                  fprintf(stdout, "Installed as %s\n", android::base::GetExecutablePath().c_str());
                  return 0;
              } else {

@@ -34,7 +34,6 @@ target_include_directories(fastboot PRIVATE
 	${SRC}/libziparchive/include
 	${SRC}/mkbootimg/include/bootimg
     ${SRC}/ext4_utils/include
-	${SRC}/f2fs_utils
 	${SRC}/liblp/include
 	${SRC}/libstorage_literals
 	${SRC}
@@ -46,11 +45,7 @@ target_compile_definitions(fastboot PRIVATE
 	-D_XOPEN_SOURCE=700
 	-DUSE_F2FS)
 
-find_library(log-lib log)
-find_library(android-lib android)
-
 target_link_libraries(fastboot
-    ${android-lib}
 	libcutils
     libincfs
 	libsparse

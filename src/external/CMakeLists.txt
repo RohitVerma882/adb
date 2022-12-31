@@ -20,9 +20,12 @@ project(external-src)
 add_library(libprotobuf STATIC IMPORTED GLOBAL)
 add_library(libcrypto STATIC IMPORTED GLOBAL)
 add_library(libssl STATIC IMPORTED GLOBAL)
-set_target_properties(libprotobuf PROPERTIES IMPORTED_LOCATION "${SRC_EXTRA}/protobuf/lib/${ANDROID_ABI}/libprotobuf.a")
-set_target_properties(libcrypto PROPERTIES IMPORTED_LOCATION "${SRC_EXTRA}/boringssl/lib/${ANDROID_ABI}/libcrypto.a")
-set_target_properties(libssl PROPERTIES IMPORTED_LOCATION "${SRC_EXTRA}/boringssl/lib/${ANDROID_ABI}/libssl.a")
+set_target_properties(libprotobuf PROPERTIES IMPORTED_LOCATION
+    "${SRC_EXTRA}/protobuf/lib/${ANDROID_ABI}/libprotobuf.a")
+set_target_properties(libcrypto PROPERTIES IMPORTED_LOCATION
+    "${SRC_EXTRA}/boringssl/lib/${ANDROID_ABI}/libcrypto.a")
+set_target_properties(libssl PROPERTIES IMPORTED_LOCATION
+    "${SRC_EXTRA}/boringssl/lib/${ANDROID_ABI}/libssl.a")
 
 # external projects
 add_subdirectory(fmtlib EXCLUDE_FROM_ALL)

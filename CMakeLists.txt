@@ -14,18 +14,18 @@
 # limitations under the License.
 #
 
-cmake_minimum_required(VERSION 3.14.2)
 project(adb)
+cmake_minimum_required(VERSION 3.14.2)
 
-# enable C CXX language
-enable_language(C CXX)
+# enable languages
+enable_language(C CXX ASM)
 
-# use C11 with GNU extensions.
+# use C11 with GNU extensions
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_EXTENSIONS ON)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 
-# use C++20 with GNU extensions.
+# use C++20 with GNU extensions
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_EXTENSIONS ON)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -33,6 +33,12 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # globle flags
 add_compile_options(-fcolor-diagnostics -fPIC -Wno-attributes)
 add_compile_definitions(_FILE_OFFSET_BITS=64)
+
+# tools version
+set(TOOLS_VERSION 33.0.3)
+set(TOOLS_VENDOR android-tools)
+configure_file(version.h.in src/build/version.h @ONLY)
+configure_file(platform_tools_version.h.in src/platform_tools_version.h @ONLY)
 
 # sources
 set(SRC ${PROJECT_SOURCE_DIR}/src)

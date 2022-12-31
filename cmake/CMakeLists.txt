@@ -17,7 +17,7 @@
 project(cmake)
 
 # executable output
-set(EXECUTABLE_OUTPUT_PATH "${CMAKE_BINARY_DIR}/bin")
+set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/bin)
 
 # libs
 include(libbase.cmake)

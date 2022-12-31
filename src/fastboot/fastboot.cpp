@@ -64,6 +64,9 @@
 #include <sparse/sparse.h>
 #include <ziparchive/zip_archive.h>
 
+#include <build/version.h>
+#include <platform_tools_version.h>
+
 #include "bootimg_utils.h"
 #include "constants.h"
 #include "diagnose_usb.h"
